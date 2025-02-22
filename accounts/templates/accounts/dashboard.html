@@ -14,10 +14,17 @@
             <a href="" class="btn btn-primary btn-sm btn-block">Create Customer</a>
             <table class="table table-sm">
                 <tr>
-                    <th></th>
+                    <th>S/N</th>
                     <th>Customer</th>
-                    <th>Orders</th>
+                    <th>Phone</th>
                 </tr>
+                {% for customer in customers %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{customer.name}}</td>
+                    <td>{{customer.phone}}</td>
+                </tr>
+                {% endfor %}
             </table>
         </div>
     </div>
@@ -29,12 +36,23 @@
             <a href="" class="btn btn-primary btn-sm btn-block">Create Order</a>
             <table class="table table-sm">
                 <tr>
+                    <th>S/N</th>
                     <th>Product</th>
                     <th>Date Ordered</th>
                     <th>Status</th>
                     <th>Update</th>
                     <th>Remove</th>
                 </tr>
+                {% for order in orders %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{order.product}}</td>
+                    <td>{{order.date_created}}</td>
+                    <td>{{order.status}}</td>
+                    <td><a href="" class="btn btn-sm btn-primary">Update</a></td>
+                    <td><a href="" class="btn btn-sm btn-danger">Remove</a></td>
+                </tr>
+                {% endfor %}
             </table>
         </div>
     </div>

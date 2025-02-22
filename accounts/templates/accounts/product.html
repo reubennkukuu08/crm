@@ -12,10 +12,21 @@
         <div class="card card-body">
             <table class="table">
                 <tr>
+                    <th>S/N</th>
                     <th>Product</th>
                     <th>Category</th>
                     <th>Price</th>
+                    <th>Date Created</th>
                 </tr>
+                {% for product in products %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{product.name}}</td>
+                    <td>{{product.category}}</td>
+                    <td>{{product.price}}</td>
+                    <td>{{product.date_created}}</td>
+                </tr>
+                {% endfor %}
             </table>
         </div>
     </div>
