@@ -1,0 +1,13 @@
+{% extends 'accounts/base.html' %}
+{% load static %}
+
+{% block ufala %}
+
+<br>
+<form action="" method="POST">
+    {% csrf_token %}
+    {{form}}
+    <button type="submit" value="" name="submit">Submit</button>
+</form>
+
+{% endblock %}
