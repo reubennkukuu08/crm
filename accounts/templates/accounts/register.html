@@ -82,36 +82,54 @@
 								<span class="input-group-text"><i class="fas fa-user"></i></span>
 							</div>
 							{{form.first_name}}
+							{% if form.firs_name.errors %}
+								<small style="color: red;">{{ form.first_name.errors.0 }}</small>
+							{% endif %}
 						</div>
 						<div class="input-group mb-3">
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-user"></i></span>
 							</div>
 							{{form.last_name}}
+							{% if form.last_name.errors %}
+								<small style="color: red;">{{ form.last_name.errors.0 }}</small>
+							{% endif %}
 						</div>
 						<div class="input-group mb-3">
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-user"></i></span>
 							</div>
 							{{form.username}}
+							{% if form.username.errors %}
+								<small style="color: red;">{{ form.username.errors.0 }}</small>
+							{% endif %}
 						</div>
 						<div class="input-group mb-2">
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-envelope-square"></i></span>
 							</div>
 							{{form.email}}
+							{% if form.email.errors %}
+								<small style="color: red;">{{ form.email.errors.0 }}</small>
+							{% endif %}
 						</div>
 						<div class="input-group mb-2">
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-key"></i></span>
 							</div>
 							{{form.password1}}
+							{% if form.password1.errors %}
+								<small style="color: red;">{{ form.password1.errors.0 }}</small>
+							{% endif %}
 						</div>
 						<div class="input-group mb-2">
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-key"></i></span>
 							</div>
 							{{form.password2}}
+							{% if form.password2.errors %}
+								<small style="color: red;">{{ form.password2.errors.0 }}</small>
+							{% endif %}
 						</div>
 
 				   		<div class="d-flex justify-content-center mt-3 login_container">

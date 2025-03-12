@@ -10,7 +10,7 @@ from django.contrib.auth.models import Group
 # Create your views here.
 @authenticated_users
 def registerPage(request):
-    form = CreateUserForm()
+    
     if request.method == 'POST':
         form = CreateUserForm(request.POST)
         if form.is_valid():
@@ -28,6 +28,8 @@ def registerPage(request):
 
             messages.success(request, f'Account was successfully created for {username}')
             return redirect('login')
+    else:
+        form = CreateUserForm()
     context = {'form': form}
     return render(request, 'accounts/register.html', context)
 
@@ -106,6 +108,18 @@ def userPage(request):
     }
     return render(request, 'accounts/user.html', context)
 
+
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['customer'])
+def accountSettings(request):
+    if request.method == 'POST':
+        form = CustomerForm(request.POST, request.FILES, instance=request.user.customer)
+        if form.is_valid():
+            form.save()
+    else:
+        form = CustomerForm(instance=request.user.customer)
+    context= {'form': form}
+    return render(request, 'accounts/account_settings.html', context)
 
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['admin'])
